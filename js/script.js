@@ -26,7 +26,7 @@ function getWeather(){
         }
     }
     //console.log(zipcode);
-    xhttp.open("GET", `http://api.weatherapi.com/v1/current.json?key=6f72eea1feef44bdad0211646200507&q=${zipcode}`);
+    xhttp.open("GET", `https://api.weatherapi.com/v1/current.json?key=6f72eea1feef44bdad0211646200507&q=${zipcode}`);
     xhttp.send();
 }
 
@@ -58,7 +58,7 @@ function getRest(){
         }
     }
     //console.log(zipcode);
-    xhttpW.open("GET", `http://api.weatherapi.com/v1/current.json?key=6f72eea1feef44bdad0211646200507&q=${zipcode}`);
+    xhttpW.open("GET", `https://api.weatherapi.com/v1/current.json?key=6f72eea1feef44bdad0211646200507&q=${zipcode}`);
     xhttpW.send();
 
     setTimeout(function(){ 
