@@ -110,7 +110,7 @@ function createInsertDataDOM(restObj){
             } else { 
                 let newImage = document.createElement('img');
                 newImage.id = "restImg";
-                newImage.src = "/resources/noimage.png";
+                newImage.src = "./resources/noimage.png";
                 newDiv.appendChild(newImage);
             };
             let newH2Name = document.createElement('h2');
