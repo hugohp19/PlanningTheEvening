@@ -13,7 +13,7 @@ function getWeather(){
     document.getElementById('restaurants-container').style.display = "";
     document.getElementById('container').style.display = "";
     document.getElementById('movies-container').style.display = 'none';
-    console.log("button clicked");
+    //console.log("button clicked");
     let zipcode = document.getElementById("zipcode").value;
     let xhttp = new XMLHttpRequest();
 
@@ -21,7 +21,7 @@ function getWeather(){
         //console.log("state has changed");
         if(xhttp.readyState === 4 && xhttp.status == 200){
             let weatherOBJ = JSON.parse(xhttp.responseText);
-            console.log(weatherOBJ);
+            //console.log(weatherOBJ);
             insertDataDOM(weatherOBJ);
         }
     }
@@ -53,8 +53,8 @@ function getRest(){
             let weatherOBJ = JSON.parse(xhttpW.responseText);
             lat = parseFloat(weatherOBJ.location.lat);
             lon = parseFloat(weatherOBJ.location.lon);
-            console.log(lat);
-            console.log(lon);
+            //console.log(lat);
+            //console.log(lon);
         }
     }
     //console.log(zipcode);
@@ -62,16 +62,16 @@ function getRest(){
     xhttpW.send();
 
     setTimeout(function(){ 
-        console.log("rest api starts");
+        //console.log("rest api starts");
         document.getElementById('restaurants-container').style.display = '';
         document.getElementById('container').style.display = '';
         let xhttpR = new XMLHttpRequest();
         xhttpR.withCredentials = false;
         xhttpR.onreadystatechange = function(){
             if(xhttpR.readyState === 4 && xhttpR.status == 200){
-                console.log( lat + " and " + lon);
+                //console.log( lat + " and " + lon);
                 let restOBJ = JSON.parse(xhttpR.responseText);
-                console.log(restOBJ);
+                //console.log(restOBJ);
                 counter2++;
                 createInsertDataDOM(restOBJ);
             }
@@ -123,18 +123,6 @@ function createInsertDataDOM(restObj){
             newDiv.appendChild(newH3Address);
             counterToTen++;
         }
-        //let newH2Cuisine = document.createElement('h3');
-        // newH2Cuisine.id = "rest1-name";
-        //newH2Cuisine.textContent = restObj.data[i].cuisine[0].name;
-        //newDiv.appendChild(newH2Cuisine);
-        // let newH2Hours = document.createElement('h2');
-        // newH2Hours.id = "rest1-name";
-        // newH2Hours.textContent = restObj.result.data[i].hours;
-        // newDiv.appendChild(newH2Hours);
-        // let newH2Phone = document.createElement('h2');
-        // newH2Phone.id = "rest1-name";
-        // newH2Phone.textContent = restObj.result.data[i].restaurant_phone;
-        // newDiv.appendChild(newH2Phone);
         if(counterToTen===12){
             break;
         }
@@ -196,8 +184,8 @@ function insertMovieDOM(movieObj){
             break;
         }
 
-        console.log(newH2Title);
-        console.log(newH2Title.textContent);
+        //console.log(newH2Title);
+        //console.log(newH2Title.textContent);
         if(newH2Title.textContent === ""){
             document.querySelector('#movies' + i).remove();
         }
