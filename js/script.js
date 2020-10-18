@@ -1,10 +1,10 @@
+
 window.onload = function(){
     //console.log("window loaded hahahaah!!");
     document.getElementById("submitZip").addEventListener('click', getWeather);
     document.getElementById("submitZip").addEventListener('click', getRest);
     document.getElementById("submitMovie").addEventListener('click', getMovie);
 }
-
 
 var lat;
 var lon;
@@ -25,8 +25,8 @@ function getWeather(){
             insertDataDOM(weatherOBJ);
         }
     }
-    //console.log(zipcode);
-    xhttp.open("GET", `https://api.weatherapi.com/v1/current.json?key=6f72eea1feef44bdad0211646200507&q=${zipcode}`);
+    console.log(typeof config);
+    xhttp.open("GET", `https://api.weatherapi.com/v1/current.json?key=${weatherApiKey}&q=${zipcode}`);
     xhttp.send();
 }
 
@@ -58,7 +58,7 @@ function getRest(){
         }
     }
     //console.log(zipcode);
-    xhttpW.open("GET", `https://api.weatherapi.com/v1/current.json?key=6f72eea1feef44bdad0211646200507&q=${zipcode}`);
+    xhttpW.open("GET", `https://api.weatherapi.com/v1/current.json?key=${weatherApiKey}&q=${zipcode}`);
     xhttpW.send();
 
     setTimeout(function(){ 
@@ -82,7 +82,7 @@ function getRest(){
         xhttpR.setRequestHeader("access-control-allow-headers", "ver");
         xhttpR.setRequestHeader("access-control-allow-origin", "http://127.0.0.1:5501/html/index.html");
         xhttpR.setRequestHeader("x-rapidapi-host", "tripadvisor1.p.rapidapi.com");
-        xhttpR.setRequestHeader("x-rapidapi-key", "0c8d4d66b1mshe6df1e6063836d6p18b147jsnd4be5ea08463");
+        xhttpR.setRequestHeader("x-rapidapi-key", tripadvisorApiKey);
         xhttpR.send();
     }, 1000);
 }
@@ -147,7 +147,7 @@ function getMovie(){
     }
     xhttpM.open("GET", `https://imdb8.p.rapidapi.com/title/find?q=${movie}`);
     xhttpM.setRequestHeader("x-rapidapi-host", "imdb8.p.rapidapi.com");
-    xhttpM.setRequestHeader("x-rapidapi-key", "0c8d4d66b1mshe6df1e6063836d6p18b147jsnd4be5ea08463");
+    xhttpM.setRequestHeader("x-rapidapi-key", tripadvisorApiKey);
     xhttpM.send();
 }
 
